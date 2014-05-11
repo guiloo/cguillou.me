@@ -10,6 +10,11 @@ var users = require('./routes/users');
 
 var app = express();
 
+// all environments
+// Start the server
+app.set('port', process.env.OPENSHIFT_NODEJS_PORT || 8080);
+app.set('ip', ip = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
